@@ -21,7 +21,7 @@ public class BookingController {
 	}
 	
 	@GetMapping("/getAll")
-	public Booking[] getAllBookings(HttpServletResponse response){
+	public Object[] getAllBookings(HttpServletResponse response){
 		response.setStatus(500);
 		return null;
 	}
