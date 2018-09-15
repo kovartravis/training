@@ -23,12 +23,6 @@ public class BookingService {
 	}
 	
 	public Booking getById(long id){
-		for(Booking booking : bookings){
-			if(booking.getId() == id){
-				return booking;
-			}
-		}
-		
 		return null;
 	}
 	

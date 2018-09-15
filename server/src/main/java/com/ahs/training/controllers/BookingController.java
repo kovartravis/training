@@ -29,7 +29,7 @@ public class BookingController {
 	@GetMapping("/getById/{Id}")
 	public Booking getBookingById(@PathVariable long Id, HttpServletResponse response){
 		response.setStatus(200);
-		return bookingService.getById(Id);
+		return null;
 	}
 
 	@PostMapping("/addBooking")
