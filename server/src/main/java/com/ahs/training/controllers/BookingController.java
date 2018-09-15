@@ -17,30 +17,30 @@ public class BookingController {
 	BookingService bookingService;
 	
 	public BookingController(BookingService _bookingService){
-
+		bookingService = _bookingService;
 	}
 	
 	@GetMapping("/getAll")
-	public Booking[] getAllBookings(HttpServletResponse response){
-		response.setStatus(500);
-		return null;
+	public Object[] getAllBookings(HttpServletResponse response){
+		response.setStatus(200);
+	    return bookingService.getAll();
 	}
 	
 	@GetMapping("/getById/{Id}")
-	public Booking getBookingById(@PathVariable long id, HttpServletResponse response){
-		response.setStatus(500);
-		return null;
+	public Booking getBookingById(@PathVariable long Id, HttpServletResponse response){
+		response.setStatus(200);
+		return bookingService.getById(Id);
 	}
 
 	@PostMapping("/addBooking")
 	public Booking addBooking(@RequestBody Booking newBooking, HttpServletResponse response){
-		response.setStatus(500);
-		return null;
+		response.setStatus(200);
+		return bookingService.addBooking(newBooking);
 	}
 	
 	@PostMapping("/updateBooking")
-	public Booking updateBooking(@RequestBody Booking booking, HttpServletResponse response){
-		response.setStatus(500);
-		return null;
+	public Booking updateBooking(@RequestBody Booking updatedBooking, HttpServletResponse response){
+		response.setStatus(200);
+		return bookingService.updateBooking(updatedBooking);
 	}
 }

@@ -15,13 +15,20 @@ public class BookingService {
 	
 	public BookingService(){
 		bookings = new LinkedList<Booking>();
+		initializeBookings(bookings);
 	}
 	
-	public Booking[] getAll(){
-		return null;
+	public Object[] getAll(){
+		return bookings.toArray();
 	}
 	
 	public Booking getById(long id){
+		for(Booking booking : bookings){
+			if(booking.getId() == id){
+				return booking;
+			}
+		}
+		
 		return null;
 	}
 	
@@ -32,8 +39,25 @@ public class BookingService {
 		return newBooking;
 	}
 	
-	public Booking updateBooking(Booking booking){
-		return null;
+	public Booking updateBooking(Booking updatedBooking){
+		for(int i = 0; i < bookings.size(); i++){
+			if(bookings.get(i).getId() == updatedBooking.getId()){
+				bookings.set(i, updatedBooking);
+				Collections.sort(bookings, new sortByTime());
+			}
+		}
+		
+		return getById(updatedBooking.getId());
+	}
+	
+	private void initializeBookings(LinkedList<Booking> _bookings){
+		for(int i = 0; i < 10; i++){
+			Booking booking = new Booking();
+			booking.setId(i);
+			booking.setTime((long) (Math.random() * Long.MAX_VALUE));
+			_bookings.add(booking);
+		}
+		Collections.sort(_bookings, new sortByTime());
 	}
 }
 
