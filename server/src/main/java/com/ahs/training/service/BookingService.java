@@ -15,9 +15,10 @@ public class BookingService {
 	
 	public BookingService(){
 		bookings = new LinkedList<Booking>();
+		initializeBookings(bookings)
 	}
 	
-	public Booking[] getAll(){
+	public Object[] getAll(){
 		return null;
 	}
 	
@@ -34,6 +35,16 @@ public class BookingService {
 	
 	public Booking updateBooking(Booking booking){
 		return null;
+	}
+
+	private void initializeBookings(LinkedList<Booking> _bookings){
+		for(int i = 0; i < 10; i++){
+			Booking booking = new Booking();
+			booking.setId(i);
+			booking.setTime((long) (Math.random() * Long.MAX_VALUE));
+			_bookings.add(booking);
+		}
+		Collections.sort(_bookings, new sortByTime());
 	}
 }
 
