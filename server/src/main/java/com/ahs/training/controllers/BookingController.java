@@ -40,7 +40,13 @@ public class BookingController {
 	
 	@PostMapping("/updateBooking")
 	public Booking updateBooking(@RequestBody Booking updatedBooking, HttpServletResponse response){
-		response.setStatus(200);
-		return bookingService.updateBooking(updatedBooking);
+		response.setStatus(400);
+		return null;
+	}
+	
+	@PostMapping("/removeBooking")
+	public Booking removeBooking(@RequestBody Booking removedBooking, HttpServletResponse response){
+		response.setStatus(400);
+		return null;
 	}
 }

@@ -22,8 +22,15 @@ public class BookingService {
 		return bookings.toArray();
 	}
 	
-	public Booking getById(long id){
-		return null;
+	//utility function, the index of the booking may not be the same as the id
+	public int getIndex(long id){
+		for(int i = 0; i < bookings.size(); i++){
+			if(bookings.get(i).getId() == id){
+				return i;
+			}
+		}
+		
+		return -1;
 	}
 	
 	public Booking addBooking(Booking newBooking){
@@ -34,26 +41,14 @@ public class BookingService {
 	}
 	
 	public Booking updateBooking(Booking updatedBooking){
-		for(int i = 0; i < bookings.size(); i++){
-			if(bookings.get(i).getId() == updatedBooking.getId()){
-				bookings.set(i, updatedBooking);
-				Collections.sort(bookings, new sortByTime());
-			}
-		}
-		
-		return getById(updatedBooking.getId());
+		return null;
 	}
 	
-	private void initializeBookings(LinkedList<Booking> _bookings){
-		for(int i = 0; i < 10; i++){
-			Booking booking = new Booking();
-			booking.setId(i);
-			booking.setTime((long) (Math.random() * Long.MAX_VALUE));
-			_bookings.add(booking);
-		}
-		Collections.sort(_bookings, new sortByTime());
+	public Booking removeBooking(Booking removedBooking){
+		return null;
 	}
-
+	
+	//add 10 random bookings for test data
 	private void initializeBookings(LinkedList<Booking> _bookings){
 		for(int i = 0; i < 10; i++){
 			Booking booking = new Booking();
