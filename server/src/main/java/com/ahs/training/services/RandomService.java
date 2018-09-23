@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import com.ahs.training.model.RandomNumber;
 
 @Service
-public class RandomNumberService {
+public class RandomService {
 	
 	ArrayList<RandomNumber> generatedNumbers;
 	
-	public RandomNumberService(){
+	public RandomService(){
 		generatedNumbers = new ArrayList<RandomNumber>();
 	}
 }

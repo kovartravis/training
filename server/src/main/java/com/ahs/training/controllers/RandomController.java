@@ -7,15 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ahs.training.model.RandomNumber;
-import com.ahs.training.services.RandomNumberService;
+import com.ahs.training.services.RandomService;
 
 @RestController
 public class RandomController {
-	
-	private RandomNumberService randomService;
-	
-	public RandomController(RandomNumberService randomNumberService){
-		randomService = randomNumberService;
-	}
 	
 }

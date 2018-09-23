@@ -25,15 +25,7 @@ public class RandomNumber {
 		return value;
 	}
 
-	public void setValue(double value) {
-		this.value = value;
-	}
-
 	public long getTimeGenerated() {
 		return timeGenerated;
-	}
-
-	public void setTimeGenerated(long timeGenerated) {
-		this.timeGenerated = timeGenerated;
 	}
 }
